@@ -4,12 +4,20 @@ let pokemonArrayCopy = [...pokemonArray];
 
 const cardContainer = document.querySelector(".card-container");
 const reduceSize = document.querySelector(".inputBox-reduceSearch")
+const filterByName = document.querySelector(".inputBox-filterName")
 
 const handleInputReduce = (event) => {
     pokemonArrayCopy = [...pokemonArray]; 
     let numberToReduce = event.target.value;
     pokemonArrayCopy.length = numberToReduce
     populatePage(pokemonArrayCopy)
+}
+
+const handleFilterByName = (event) => {
+    let nameToFilter = event.target.value.toLowerCase();
+    let filteredPokemon = pokemonArrayCopy.filter((object) => object.name.toLowerCase().includes(nameToFilter))
+    populatePage(filteredPokemon)
+
 }
 
 const makePokemonCard = (pokemonObject) => {
@@ -39,5 +47,5 @@ const populatePage = (arrayOfPokemon) => {
 }
 
 reduceSize.addEventListener("input", handleInputReduce)
-
+filterByName.addEventListener("input", handleFilterByName)
 populatePage(pokemonArrayCopy);
