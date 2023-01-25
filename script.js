@@ -5,7 +5,7 @@ let pokemonArrayCopy = [...pokemonArray];
 const cardContainer = document.querySelector(".card-container");
 const reduceSize = document.querySelector(".inputBox-reduceSearch")
 const filterByName = document.querySelector(".inputBox-filterName")
-const filterByType = document.querySelector(".inputBox-filterType")
+const filterByType = document.querySelectorAll(".inputBox-filterType")
 
 
 const handleInputReduce = (event) => {
@@ -28,15 +28,11 @@ const handleFilterByName = (event) => {
 
 }
 
-const handleFilterByType = (event) => {
-    let typesToFilter = event.target.value.toLowerCase(); 
-    if (typesToFilter == ""){
-        populatePage(pokemonArrayCopy)
-    }
-    else{
-        let filteredPokemon = pokemonArrayCopy.filter((object) => object.types.includes(typesToFilter))
-        populatePage(filteredPokemon)
-    }
+const handleFilterByType = (type) => {
+    let typesToFilter = type.toLowerCase(); 
+    let filteredPokemon = pokemonArrayCopy.filter((object) => object.types.includes(typesToFilter))
+    populatePage(filteredPokemon)
+    
 }
 
 const makePokemonCard = (pokemonObject) => {
@@ -67,5 +63,171 @@ const populatePage = (arrayOfPokemon) => {
 
 reduceSize.addEventListener("input", handleInputReduce)
 filterByName.addEventListener("input", handleFilterByName)
-filterByType.addEventListener("input", handleFilterByType)
+filterByType.forEach((checkbox) => {
+    checkbox.addEventListener("change", function() {
+       switch (checkbox.id){
+        case "checkbox-ice":
+            if(checkbox.checked){
+                handleFilterByType("ice")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break;  
+
+        case "checkbox-rock":
+            if (checkbox.checked){
+                handleFilterByType("rock")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+        }
+            break; 
+
+        case "checkbox-fighting":
+            if (checkbox.checked){
+                handleFilterByType("fighting")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-grass":
+            if (checkbox.checked){
+                handleFilterByType("grass")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-fire":
+            if (checkbox.checked){
+                handleFilterByType("fire")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-water":
+            if (checkbox.checked){
+                handleFilterByType("water")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-flying":
+            if (checkbox.checked){
+                handleFilterByType("flying")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-fairy":
+            if (checkbox.checked){
+                handleFilterByType("fairy")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-dark":
+            if (checkbox.checked){
+                handleFilterByType("dark")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-bug":
+            if (checkbox.checked){
+                handleFilterByType("bug")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-electric":
+            if (checkbox.checked){
+                handleFilterByType("electric")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+        
+        case "checkbox-ground":
+            if (checkbox.checked){
+                handleFilterByType("ground")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break;
+            
+        case "checkbox-psychic":
+            if (checkbox.checked){
+                handleFilterByType("psychic")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-steel":
+            if (checkbox.checked){
+                handleFilterByType("steel")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-ghost":
+            if (checkbox.checked){
+                handleFilterByType("ghost")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-dragon":
+            if (checkbox.checked){
+                handleFilterByType("dragon")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break; 
+
+        case "checkbox-normal":
+            if (checkbox.checked){
+                handleFilterByType("normal")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break;
+
+        case "checkbox-poison":
+            if (checkbox.checked){
+                handleFilterByType("poison")
+            }
+            else {
+                populatePage(pokemonArrayCopy)
+            }
+            break;
+       }
+    })
+})
 populatePage(pokemonArrayCopy);
