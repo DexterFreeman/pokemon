@@ -17,7 +17,8 @@
   <body>
     <h1>PokéDom- gotta code 'em all!</h1>
     <label for="firstInputBox">Search up to number:</label>
-    <input id="firstInputBox" class="inputBox-reduceSearch" type="text">
+    <input id="firstInputBox" class="inputBox-reduceSearch" type="range" oninput="this.nextElementSibling.value = this.value" min="1" max="151">
+    <output>151</output>
     <label for="secondInputBox">Search by name:</label>
     <input id="secondInputBox" class="inputBox-filterName" type="text">
     <label for="thirdInputBox">Search by type:</label>
